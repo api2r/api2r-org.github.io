@@ -1,25 +1,64 @@
-<!-- redirect.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api2r</title>
     <script>
       const redirects = {
         "ghana2025": "https://jonthegeek.quarto.pub/building-the-hive",
       };
 
       const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
-      const target = redirects[path];
-
-      if (target) {
-        window.location.replace(target);
-      } else {
-        document.body.innerHTML = "<h1>404: Not found</h1><p>No redirect defined for: <code>" + path + "</code></p>";
+      if (path) {
+        const target = redirects[path];
+        if (target) {
+          window.location.replace(target);
+        } else {
+          document.body.innerHTML = "<h1>404: Not found</h1><p>No redirect defined for: <code>" + path + "</code></p>";
+        }
       }
     </script>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 640px;
+        margin: 4rem auto;
+        padding: 0 1.5rem;
+        color: #222;
+      }
+      img.logo {
+        display: block;
+        max-width: 200px;
+        margin-bottom: 1.5rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        line-height: 1.6;
+      }
+      ul {
+        padding-left: 1.25rem;
+        line-height: 1.9;
+      }
+      a {
+        color: #0066cc;
+      }
+    </style>
   </head>
   <body>
-    <p>Redirecting…</p>
+    <img src="/images/logo.svg" alt="api2r logo" class="logo" />
+    <h1>api2r</h1>
+    <p>R packages to access web APIs.</p>
+    <h2>Packages</h2>
+    <ul>
+      <li><a href="https://beekeeper.api2r.org/">beekeeper</a></li>
+      <li><a href="https://rapid.api2r.org/">rapid</a></li>
+      <li><a href="https://nectar.api2r.org/">nectar</a></li>
+    </ul>
+    <h2>Book</h2>
+    <p><a href="https://wapir.io/"><em>Web APIs with R</em></a></p>
   </body>
 </html>
