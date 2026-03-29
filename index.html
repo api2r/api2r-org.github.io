@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>api2r</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script>
       const redirects = {
         "ghana2025": "https://jonthegeek.quarto.pub/building-the-hive",
@@ -20,45 +23,159 @@
       }
     </script>
     <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
       body {
-        font-family: sans-serif;
-        max-width: 640px;
-        margin: 4rem auto;
-        padding: 0 1.5rem;
-        color: #222;
+        font-family: "Inter", system-ui, sans-serif;
+        background: #f4f7fb;
+        color: #1a2332;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.5rem 4rem;
       }
-      img.logo {
+
+      /* ── hero ─────────────────────────────────── */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+      .hero img {
+        width: 140px;
+        margin-bottom: 1.25rem;
+        filter: drop-shadow(0 4px 12px rgba(46, 109, 164, 0.25));
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: #1a2332;
+      }
+      .hero p {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        color: #4a5e75;
+      }
+
+      /* ── section ─────────────────────────────── */
+      .section {
+        width: 100%;
+        max-width: 680px;
+        margin-bottom: 2.5rem;
+      }
+      .section-title {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #7a95ae;
+        margin-bottom: 0.85rem;
+        padding-left: 2px;
+      }
+
+      /* ── package cards ───────────────────────── */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: #ffffff;
+        border: 1px solid #dce6f0;
+        border-radius: 12px;
+        padding: 1.25rem 1.25rem 1rem;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+      }
+      .card:hover {
+        box-shadow: 0 6px 20px rgba(46, 109, 164, 0.15);
+        transform: translateY(-2px);
+        border-color: #2e6da4;
+      }
+      .card-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2e6da4;
+      }
+      .card-domain {
+        font-size: 0.78rem;
+        color: #8aa3bb;
+        margin-top: 0.2rem;
+      }
+
+      /* ── book card ───────────────────────────── */
+      .book-card {
+        background: #ffffff;
+        border: 1px solid #dce6f0;
+        border-radius: 12px;
+        padding: 1.25rem 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+      }
+      .book-card:hover {
+        box-shadow: 0 6px 20px rgba(46, 109, 164, 0.15);
+        transform: translateY(-2px);
+        border-color: #2e6da4;
+      }
+      .book-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+      .book-text strong {
         display: block;
-        max-width: 200px;
-        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2e6da4;
       }
-      h1 {
-        font-size: 1.75rem;
-        margin-bottom: 0.5rem;
-      }
-      p {
-        line-height: 1.6;
-      }
-      ul {
-        padding-left: 1.25rem;
-        line-height: 1.9;
-      }
-      a {
-        color: #0066cc;
+      .book-text span {
+        font-size: 0.82rem;
+        color: #8aa3bb;
       }
     </style>
   </head>
   <body>
-    <img src="/images/logo.svg" alt="api2r logo" class="logo" />
-    <h1>api2r</h1>
-    <p>R packages to access web APIs.</p>
-    <h2>Packages</h2>
-    <ul>
-      <li><a href="https://beekeeper.api2r.org/">beekeeper</a></li>
-      <li><a href="https://rapid.api2r.org/">rapid</a></li>
-      <li><a href="https://nectar.api2r.org/">nectar</a></li>
-    </ul>
-    <h2>Book</h2>
-    <p><a href="https://wapir.io/"><em>Web APIs with R</em></a></p>
+    <header class="hero">
+      <img src="/images/logo.svg" alt="api2r logo" />
+      <h1>api2r</h1>
+      <p>R packages to access web APIs.</p>
+    </header>
+
+    <section class="section">
+      <p class="section-title">Packages</p>
+      <div class="cards">
+        <a class="card" href="https://beekeeper.api2r.org/">
+          <div class="card-name">beekeeper</div>
+          <div class="card-domain">beekeeper.api2r.org</div>
+        </a>
+        <a class="card" href="https://rapid.api2r.org/">
+          <div class="card-name">rapid</div>
+          <div class="card-domain">rapid.api2r.org</div>
+        </a>
+        <a class="card" href="https://nectar.api2r.org/">
+          <div class="card-name">nectar</div>
+          <div class="card-domain">nectar.api2r.org</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-title">Book</p>
+      <a class="book-card" href="https://wapir.io/">
+        <span class="book-icon">📖</span>
+        <div class="book-text">
+          <strong>Web APIs with R</strong>
+          <span>wapir.io</span>
+        </div>
+      </a>
+    </section>
   </body>
 </html>
